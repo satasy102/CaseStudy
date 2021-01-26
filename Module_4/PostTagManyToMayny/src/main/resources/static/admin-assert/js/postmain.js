@@ -5,7 +5,7 @@ var tags = {} || tags;
 //POST-JS
 posts.initTags = function () {
     $.ajax({
-        url: "http://localhost:8080/api/tags/",
+        url: "/api/tags/",
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -24,7 +24,7 @@ posts.initTags = function () {
 posts.intTable = function () {
     $("#datatables").DataTable({
         ajax: {
-            url: 'http://localhost:8080/api/posts/',
+            url: '/api/posts/',
             method: "GET",
             datatype: "json",
             dataSrc: ""
@@ -88,7 +88,7 @@ posts.resetForm = function () {
 posts.get = function (id) {
     console.log('get :' + id);
     $.ajax({
-        url: "http://localhost:8080/api/post/" + id,
+        url: "/api/post/" + id,
         method: "GET",
         dataType: "json"
     }).done(function (data) {
@@ -125,7 +125,7 @@ posts.save = function () {
             postObj.tags = tags;
 
             $.ajax({
-                url: "http://localhost:8080/api/post/",
+                url: "/api/post/",
                 method: "POST",
                 dataType: "json",
                 contentType: "application/json",
@@ -157,7 +157,7 @@ posts.save = function () {
             })
             postObj.tags = tags;
             $.ajax({
-                url: "http://localhost:8080/api/post/",
+                url: "/api/post/",
                 method: "PUT",
                 dataType: "json",
                 contentType: "application/json",
@@ -193,7 +193,7 @@ posts.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/post/" + id,
+                    url: "/api/post/" + id,
                     method: "DELETE",
                     dataType: "json"
                 }).done(function () {

@@ -4,7 +4,7 @@ var tags = {} || tags;
 tags.intTable = function () {
     $("#datatables").DataTable({
         ajax: {
-            url: 'http://localhost:8080/api/tags/',
+            url: '/api/tags/',
             method: "GET",
             datatype: "json",
             dataSrc: ""
@@ -42,7 +42,7 @@ tags.resetForm = function () {
 tags.get = function (id) {
     console.log('get :' + id);
     $.ajax({
-        url: "http://localhost:8080/api/tag/" + id,
+        url: "/api/tag/" + id,
         method: "GET",
         dataType: "json"
     }).done(function (data) {
@@ -64,7 +64,7 @@ tags.save = function () {
             tagObj.name = $('#name').val();
             //
             $.ajax({
-                url: "http://localhost:8080/api/tag/",
+                url: "/api/tag/",
                 method: "POST",
                 dataType: "json",
                 contentType: "application/json",
@@ -83,7 +83,7 @@ tags.save = function () {
             tagObj.tag_id = $('#tag_id').val();
             //
             $.ajax({
-                url: "http://localhost:8080/api/tag/",
+                url: "/api/tag/",
                 method: "PUT",
                 dataType: "json",
                 contentType: "application/json",
@@ -116,7 +116,7 @@ tags.delete = function (id) {
         callback: function (result) {
             if (result) {
                 $.ajax({
-                    url: "http://localhost:8080/api/tag/" + id,
+                    url: "/api/tag/" + id,
                     method: "DELETE",
                     dataType: "json"
                 }).done(function () {
